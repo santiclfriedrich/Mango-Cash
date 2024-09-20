@@ -1,0 +1,118 @@
+.navbar {
+    height: 90px;
+    width: 100vw;
+    padding: 0px 20px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    background-color: var(--blanco);
+}
+
+.navbar-left {
+    width: 25%;
+    height: 100%;
+    padding: 0px 20px;
+    gap: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-center {
+    width: 50%;
+    height: 100%;
+    padding: 0px 20px;
+    gap: 50px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.navbar-right {
+    width: 25%;
+    height: 100%;
+    padding: 0px 20px;
+    gap: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-logo {
+    width: 70%;
+    margin: 0px 0px 10px 0px;
+    height: auto;
+}
+
+.navbar-text {
+    font-size: 25px;
+    font-weight: 800;
+    position: absolute;
+    top: 30px;
+    left: 80px;
+}
+
+.navbar-text b {
+    font-weight: 800;
+    color: var(--naranja-claro);
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: var(--gris-fonts);
+    font-weight: 600;
+}
+
+.navbar-link:hover {
+    color: var(--negro);
+}
+
+.button {
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-size: var(--f_size_p);
+    font-weight: 500;
+
+    transition: font-size 0.3s;
+}
+
+.--signup{
+    color: var(--naranja-claro);
+    background-color: var(--gris-buttons);
+}
+
+.--signup a{
+    color: var(--naranja-claro);
+    list-style: none;
+}
+
+.--signin{
+    color: var(--blanco);
+    background-color: var(--naranja-claro);
+}
+
+.--signin a{
+    text-decoration: none;
+    color: var(--blanco);
+}
+
+.--signin:hover{
+    background-color: var(--naranja-claro-hover);
+}
+
+.--signup:hover{
+    background-color: var(--gris-buttons-hover);
+}

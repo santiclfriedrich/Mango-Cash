@@ -1,0 +1,41 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Epilogue", sans-serif;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+}
+
+:root {
+    --f_size_h1: 30px;
+    --f_size_h2: 20px;
+    --f_size_p: 16px;
+
+    --f_weight_titulos: 500;
+    --f_weight_subtitulos: 400;
+    --f_weight_parrafos: 300;
+    --f_weight_bold: 600;
+
+    --verde: #9AB290;
+    --naranja-oscuro: #A94904;
+    --naranja-claro: #FF862F;
+    --naranja-claro-hover: #ff984e;
+    --gris-background: #f0f0f0;
+    --gris-buttons: #eaeaea;
+    --gris-buttons-hover: #dfdfdf;
+    --gris-fonts: #B6B5B5;
+    --blanco: #F7F7F7;
+    --negro: #323030;
+}
+
+

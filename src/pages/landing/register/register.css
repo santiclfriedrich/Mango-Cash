@@ -1,0 +1,109 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: var(--naranja-claro);
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+}
+
+.register-form {
+    background: var(--blanco);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+    overflow: auto; /* Permite el desplazamiento si el contenido excede el tamaño del contenedor */
+}
+
+.form-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-logo img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.form-logo h1 {
+    margin-bottom: 35px;
+    text-align: center;
+    color: var(--naranja-claro);
+}
+
+.form-logo h1 span {
+    font-weight: 400;
+}
+
+.register-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.register-form input[type="email"],
+.register-form input[type="password"],
+.register-form input[type="text"],
+.register-form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.subscribe-newsletter {
+    display: flex;
+    align-items: center;
+}
+
+#subscribe-newsletter {
+    position: relative;
+    top: 1px;
+}
+
+.subscribe-newsletter span {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.subscribe-newsletter input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--naranja-claro);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: var(--naranja-claro-hover);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-link .link{
+    color: var(--naranja-claro);
+}

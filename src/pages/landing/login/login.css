@@ -1,0 +1,125 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: var(--naranja-claro);
+}
+
+.login-form {
+    background: var(--blanco);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-logo{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-logo img{
+    width: 80px;
+    margin: 0 auto;
+}
+
+.form-logo h1{
+    margin-top: 10px;
+    margin-bottom: 35px;
+    text-align: center;
+    color: var(--naranja-claro);
+}
+
+.form-logo h1 span{
+    font-weight: 400;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+#remember-me-check{
+    position: relative;
+    top: 1px;
+}
+
+.remember-me span{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.forgot-password {
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--naranja-claro);
+    position: relative;
+    bottom: 4px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--naranja-claro);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: var(--naranja-claro-hover);
+}
+
+.submit-btn a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link a {
+    color: var(--naranja-claro);
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

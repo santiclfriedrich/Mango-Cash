@@ -1,0 +1,21 @@
+.layout {
+  display: flex;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 260px;
+  background-color: var(--verde);
+  padding: 6px 14px;
+}
+
+.main_content {
+  margin-left: 260px; /* Deja espacio para el sidebar */
+  padding: 20px; /* Opcional: Agrega padding para el contenido */
+  width: calc(100% - 260px); /* Asegura que el contenido ocupe el espacio restante */
+  min-height: 100vh; /* Asegura que el contenido cubra toda la altura de la vista */
+}
+
