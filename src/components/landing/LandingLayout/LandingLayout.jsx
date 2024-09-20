@@ -13,7 +13,7 @@ function LandingLayout() {
       <Outlet />
       
     </div>
-    {/* <Footer /> */}
+    { <Footer /> }
     
     </>
   )
