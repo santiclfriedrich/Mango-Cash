@@ -8,12 +8,15 @@ function Navbar() {
     
     <nav class="navbar">
       <div class="navbar-left">
+      <Link to={"/"} className='navbar-link'>
         <img class="navbar-logo" src="./src/assets/logo-nombre.png" alt="logo-mangocash" />
+      </Link>
+        
       </div>
 
       <div class="navbar-center">
-        <Link to={"/about"} className='navbar-link'>Sobre nosotros</Link>
-        <Link to={"/why"} className='navbar-link'>Porqué Elegirnos</Link>
+        <Link to={"/about_us"} className='navbar-link'>Sobre nosotros</Link>
+        <Link to={"/why_choose_mangocash"} className='navbar-link'>Porqué Elegirnos</Link>
         <Link to={"/help"} className='navbar-link'>Ayuda</Link>
       </div>
 

@@ -1,6 +1,9 @@
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 
+@tailwind components;
+@tailwind utilities;
+
 * {
     margin: 0;
     padding: 0;
@@ -16,6 +19,10 @@ a{
     text-decoration: none;
 }
 
+li {
+    list-style: none;
+}
+
 :root {
     --f_size_h1: 30px;
     --f_size_h2: 20px;
@@ -26,7 +33,7 @@ a{
     --f_weight_parrafos: 300;
     --f_weight_bold: 600;
 
-    --verde: #9AB290;
+    --verde: #336021;
     --naranja-oscuro: #A94904;
     --naranja-claro: #FF862F;
     --naranja-claro-hover: #ff984e;
@@ -37,5 +44,7 @@ a{
     --blanco: #F7F7F7;
     --negro: #323030;
 }
+
+
 
 

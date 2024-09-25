@@ -14,7 +14,6 @@ function App() {
         {/* Ruta para la Landing Page */}
         <Route path="/*" element={<LandingApp />} />
   
-
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         

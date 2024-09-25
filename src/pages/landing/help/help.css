@@ -21,24 +21,19 @@
     line-height: 1.6;
 }
 
-.help-content .support{
+.support{
     color: var(--naranja-claro);
     font-weight: var(--f_weight_bold);
 }
 
-.help-content h1{
-    font-size: 3rem;
-}
-
-.help-content h1 span{
-    color: var(--naranja-claro);
-}
-
-.help-content .help-wanted{
+.help-wanted{
     font-size: 3rem;
     font-weight: var(--f_weight_bold);
 }
 
+.text-container h2 span {
+    color: var(--naranja-claro);
+}
 /* ------Help Frecuents----------*/
 
 .help-options{
