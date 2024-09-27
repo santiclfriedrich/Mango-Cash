@@ -4,40 +4,31 @@ import { Link } from 'react-router-dom'
 
 function register() {
   return (
-    <div>
+      <div className="login-container">
+        <Link to={"/"} className="link-home">
+            <img className="img-logo" src="./src/assets/logo-nombre.png" alt="logo con nombre mangocash" />
+        </Link>
 
-        <div class="register-container">
-        <form class="register-form">
-            <div class="form-logo">
-                <img src="../../src/assets/Logo_MangoCash.svg" alt="logo" />
-                <h1>Mango<span>Cash</span></h1>
-            </div>
+        <div className="img-container">
+            <img className="img" src="./src/assets/login-register/formulario.png" alt="autentication-Img" />
+        </div>
 
-            <label for="name">Nombre Completo</label>
-            <input type="text" id="name" name="name" placeholder="Ingrese su nombre completo" required />
+        <div className="form-container">
+            <h2 className="h2-registro">Registrate</h2>
 
-            <label for="email">Correo Electrónico</label>
-            <input type="email" id="email" name="email" placeholder="Ingrese su correo" required />
-            
-            <label for="password">Contraseña</label>
-            <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required />
+            <form  className='form-login' action="#" method="POST">
+                <label className="form-label-login" htmlFor="email">Direccion de e-mail</label>
+                <input className='form-input-login' type="email" />
 
-            <label for="confirm-password">Confirmar Contraseña</label>
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirme su contraseña" required />
+                <div className="container-label-contraseña">    
+                    <label className="form-label-login" htmlFor="password">Contraseña</label>
+                    <a className='form-a-registro' href="#">¿Olvidaste la constraseña?</a>
+                </div>
+                <input className='form-input-login' type="password" />
 
-            <div class="options">
-                <label class="subscribe-newsletter">
-                    <input type="checkbox" id="subscribe-newsletter" />
-                    <span>Acepto los términos y políticas de privacidad</span>
-                </label>
-            </div>
-
-            <button type="submit" class="submit-btn">Registrarse</button>
-
-            <p class="login-link">¿Ya tienes una cuenta? <Link to={'/login'} className='link'>Inicia sesión</Link></p>
-        </form>
-    </div>
-
+                <button className='form-button-registro' type="submit">Ingresa</button>
+            </form>
+        </div>
     </div>
   )
 }
