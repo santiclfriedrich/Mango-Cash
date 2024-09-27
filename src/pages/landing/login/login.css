@@ -3,123 +3,94 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    padding: 20px;
-    background-color: var(--naranja-claro);
 }
 
-.login-form {
-    background: var(--blanco);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 400px;
+.img-logo {
+    width: 200px;
+
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
-.form-logo{
+.form-container {
+    width: 30vw;
+    margin: 0px 100px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: start;
 }
 
-.form-logo img{
-    width: 80px;
-    margin: 0 auto;
+.h2-login {
+    margin: 30px 0px;
+    font-size: 38px;
+    color: var(--verde);
 }
 
-.form-logo h1{
-    margin-top: 10px;
-    margin-bottom: 35px;
-    text-align: center;
-    color: var(--naranja-claro);
+.form-login {
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-.form-logo h1 span{
-    font-weight: 400;
-}
-
-.login-form label {
+.form-label-login {
     display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    color: black;
 }
 
-.login-form input[type="email"],
-.login-form input[type="password"] {
+.form-input-login{
+    display: block;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 6px;
+    margin: 10px 0px 30px 0px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 24px;
 }
 
-.options {
+.container-label-contraseña {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
 }
 
-.remember-me {
+.form-a-login {
+    font-weight: 600;
+    color: var(--verde);
+}
+
+.form-button {
     display: flex;
-    align-items: center;
-}
-
-#remember-me-check{
-    position: relative;
-    top: 1px;
-}
-
-.remember-me span{
-    font-size: 15px;
-    font-weight: 400;
-}
-
-.remember-me input[type="checkbox"] {
-    margin-right: 5px;
-}
-
-.forgot-password {
-    font-size: 13px;
-    text-decoration: none;
-    color: var(--naranja-claro);
-    position: relative;
-    bottom: 4px;
-}
-
-.forgot-password:hover {
-    text-decoration: underline;
-}
-
-.submit-btn {
+    justify-content: center;
     width: 100%;
-    padding: 10px;
-    background-color: var(--naranja-claro);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
+
+    border-radius:  6px;
+    background-color: var(--verde);
+    color: var(--blanco);
+
+    padding: 6px 12px;
+
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
 }
 
-.submit-btn:hover {
-    background-color: var(--naranja-claro-hover);
+.form-button:hover {
+    background-color: var(--verde-hover);
 }
 
-.submit-btn a{
-    text-decoration: none;
-    color: #fff;
+.img-container {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 50px;
 }
 
-.register-link {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.register-link a {
-    color: var(--naranja-claro);
-    text-decoration: none;
-}
-
-.register-link a:hover {
-    text-decoration: underline;
+.img {
+    width: 100%;
 }
