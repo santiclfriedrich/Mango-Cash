@@ -1,0 +1,164 @@
+.container-transactions{
+    height: auto;
+}
+
+.header-transactions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.header-transactions-left{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.header-transactions-left i {
+    font-size: 1.2rem;
+    color: gray;
+}
+
+.header-transactions-left p {
+    font-size: 0.9rem;
+    color: gray;
+}
+
+.header-transactions-right{
+    display: flex;
+    align-items: center;
+}
+
+.transaction-notif i{
+    color: var(--verde);
+    font-size: 20px;
+    padding-right: 30px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Borde redondeado */
+    padding: 5px;
+    background-color: #fff; /* Fondo de la barra de búsqueda */
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px 30px;
+    border-radius: 6px;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.search-bar i {
+    font-size: 1rem;
+    color: var(--verde);
+}
+
+.header-transaction-divider{
+    width: 100%;
+    height: 1px; /* Altura de la línea */
+    background-color: rgb(215, 214, 214); /* Color de la línea */
+    margin-top: 25px; /* Espacio entre el header y la línea */
+    margin-bottom: 25px;
+}
+
+.main-transactions .mini-menu{
+    margin-top: 15px;
+    display: flex;
+    gap: 30px;
+    
+}
+
+.mini-menu .menu-option{
+    position: relative; /* Necesario para posicionar la línea */
+    padding: 6px 0px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: color 0.3s;
+    color: var(--verde);
+}
+
+.menu-option.active::after {
+    content: ""; /* Requiere contenido para mostrar */
+    position: absolute; /* Posiciona la línea */
+    left: 50%; /* Alinea la línea al centro */
+    bottom: -5px; /* Espacio entre el texto y la línea */
+    height: 3px; /* Altura de la línea */
+    width: 100%; /* Ajusta el ancho de la línea según sea necesario */
+    transform: translateX(-50%); /* Centra la línea horizontalmente */
+    background-color: var(--verde); /* Color de la línea */
+}
+
+
+.menu-option:hover::after {
+    content: ""; /* Requiere contenido para mostrar */
+    position: absolute; /* Posiciona la línea */
+    left: 50%; /* Alinea la línea al centro */
+    bottom: -5px; /* Espacio entre el texto y la línea */
+    height: 3px; /* Altura de la línea */
+    width: 100%; /* Ajusta el ancho de la línea según sea necesario */
+    transform: translateX(-50%); /* Centra la línea horizontalmente */
+    background-color: var(--verde); /* Color de la línea */
+}
+
+
+/*------------TABLA---------------*/
+
+.transactions-table {
+    margin-top: 30px;
+    width: 100%; /* Ajusta el ancho según sea necesario */
+    border-collapse: collapse; /* Combina bordes para un aspecto limpio */
+}
+
+.transactions-table tr{
+    text-align: center;
+}
+
+.transactions-table th, .transactions-table td {
+    
+    padding: 25px; /* Espaciado interno */
+    text-align: left; /* Alineación del texto */
+}
+
+.transactions-table th {
+    background-color: var(--verde); /* Color de fondo del encabezado */
+    font-weight: bold; /* Negrita para el encabezado */
+    color: #f1f1f1;
+}
+
+.transactions-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color de fondo para filas pares */
+}
+
+.transactions-table tr:hover {
+    background-color: #f1f1f1; /* Color de fondo al pasar el mouse */
+}
+
+.transaction-load-more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.transaction-load-more button{
+    background-color: var(--verde);
+    color: #f1f1f1;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.transaction-load-more button:hover{
+    background-color: #52833f;
+}
