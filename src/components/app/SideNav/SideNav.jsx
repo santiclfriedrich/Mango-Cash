@@ -2,7 +2,7 @@ import './SideNav.css'
 import React from 'react'
 import userImage from '../../../assets/profile_photos/Santiago_Friedrich.jpeg'
 import { Link } from 'react-router-dom'
-import Dashboard from '../../../pages/app/dashboard/dashboard'
+
 
 function SideNav() {
   return (
@@ -33,17 +33,17 @@ function SideNav() {
                  {/* <span class="tooltip">Dashboard</span>  */}
             </li>
             <li>
-                <a href="#">
+                <Link to={"/app/balances"}>
                     <i class='bx bx-wallet'></i>
                     <span class="links_name">Balances</span>
-                </a>
+                </Link>
                  {/* <span class="tooltip">Dashboard</span>  */}
             </li>
             <li>
-                <a href="#">
+                <Link to={"/app/transactions"}>
                     <i class='bx bx-transfer'></i>
                     <span class="links_name">Transacciones</span>
-                </a>
+                </Link>
                  {/* <span class="tooltip">Dashboard</span>  */}
             </li>
             <li>
@@ -68,7 +68,7 @@ function SideNav() {
                  {/* <span class="tooltip">Dashboard</span>  */}
             </li>
              <li>
-                <a href="../../../pages/Beneficios-page/Beneficios.html">
+                <a href="#">
                     <i class='bx bx-medal'></i>
                     <span class="links_name">Beneficios</span>
                 </a>
