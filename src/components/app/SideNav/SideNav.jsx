@@ -1,6 +1,7 @@
 import './SideNav.css'
 import React from 'react'
 import userImage from '../../../assets/profile_photos/Santiago_Friedrich.jpeg'
+import logoname from '../../../assets/logo-nombre.png'
 import { Link } from 'react-router-dom'
 
 
@@ -11,8 +12,7 @@ function SideNav() {
 
         <div class="logo_content">
             <div class="logo">
-                <i class='bx bxl-c-plus-plus'></i>
-                <div class="logo_name">Mango Cash</div>
+                <img className='logo-sidebar' src={logoname} alt="logo" />
             </div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
@@ -20,7 +20,7 @@ function SideNav() {
         <ul class="nav_list">
             <li>
                 <Link to={"/app/dashboard"}>
-                    <i class='bx bx-grid-alt' ></i>
+                    <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </Link>
                  {/* <span class="tooltip">Dashboard</span>  */}
@@ -29,13 +29,6 @@ function SideNav() {
                 <Link to={"/app/profile"}>
                     <i class='bx bx-user'></i>
                     <span class="links_name">Perfil</span>
-                </Link>
-                 {/* <span class="tooltip">Dashboard</span>  */}
-            </li>
-            <li>
-                <Link to={"/app/balances"}>
-                    <i class='bx bx-wallet'></i>
-                    <span class="links_name">Balances</span>
                 </Link>
                  {/* <span class="tooltip">Dashboard</span>  */}
             </li>
@@ -55,29 +48,15 @@ function SideNav() {
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-money'></i>
-                    <span class="links_name">Gastos</span>
-                </a>
-                 {/* <span class="tooltip">Dashboard</span>  */}
-            </li>
-            <li>
-                <a href="#">
                     <i class='bx bx-crosshair'></i>
                     <span class="links_name">Objetivos</span>
                 </a>
                  {/* <span class="tooltip">Dashboard</span>  */}
             </li>
-             <li>
-                <a href="#">
-                    <i class='bx bx-medal'></i>
-                    <span class="links_name">Beneficios</span>
-                </a>
-                 {/* <span class="tooltip">Dashboard</span>  */}
-            </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="links_name">Configuracion</span>
+                    <i class='bx bx-book'></i>
+                    <span class="links_name">Educación</span>
                 </a>
                  {/* <span class="tooltip">Dashboard</span>  */}
             </li>
