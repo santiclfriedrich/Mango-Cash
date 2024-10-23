@@ -57,6 +57,7 @@ const registroSlice = createSlice({
         },
         status: 'idle',
         error: null,
+        isRegistered: false,
     },
 
     reducers: {
@@ -64,6 +65,10 @@ const registroSlice = createSlice({
             const {name, value} = action.payload;
             state.formData[name] = value;
         },
+        resetRegistroState: (state) => {
+            state.status = 'idle'
+            state.isRegistered = false
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -72,15 +77,25 @@ const registroSlice = createSlice({
         })
         .addCase(registrarUsuario.fulfilled, (state, action) => {
             state.status = 'succeeded';
-            state.formData = {};
+            state.isRegistered = true
+            console.log('Usuario registrado:', action.payload);
+            state.formData = {
+                nombre: '',
+                apellido: '',
+                email: '',
+                password: '',
+                fechaNacimiento: '',
+                genero: '',
+            };
         })
         .addCase(registrarUsuario.rejected, (state, action) => {
             state.status = 'failed';
             state.error = action.payload
+            state.isRegistered = false
         })
     }
 })
 
-export const { actualizarFormulario } = registroSlice.actions;
+export const { actualizarFormulario, resetRegistroState } = registroSlice.actions;
 
 export default registroSlice.reducer

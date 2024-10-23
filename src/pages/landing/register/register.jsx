@@ -1,8 +1,8 @@
 import './register.css'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'
-import { actualizarFormulario, registrarUsuario } from '../../../redux/registroSlice';
+import { Link, useNavigate } from 'react-router-dom'
+import { actualizarFormulario, registrarUsuario, resetRegistroState } from '../../../redux/registroSlice';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,7 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
     const FormularioRegistro = () => {
        
         const dispatch = useDispatch();
-        const { formData, status } = useSelector((state) => state.registro )
+        const navigate = useNavigate()
+        const { formData, status, isRegistered } = useSelector((state) => state.registro )
 
         const handleChange = (e) => {
             const {name, value} = e.target
@@ -22,6 +23,29 @@ import 'react-toastify/dist/ReactToastify.css';
             e.preventDefault()
             dispatch(registrarUsuario(formData))
         }
+
+        useEffect(() => {
+            if (status === 'succeeded' || status === 'failed') {
+                dispatch(resetRegistroState()); // Asegúrate de que reseteamos el estado
+            }
+        }, [status, dispatch]);
+
+        useEffect(() => {
+            console.log('Estado del registro:', { formData, status, isRegistered }); // Agregado para depuración
+        }, [formData, status, isRegistered]);
+
+        useEffect(() => {
+            dispatch(resetRegistroState())
+
+        }, [dispatch])
+
+        useEffect(() => {
+            console.log(status);
+            if(isRegistered){
+                navigate('/login')
+            }
+            dispatch(resetRegistroState());
+        }, [isRegistered, navigate] )
 
 
   return (
