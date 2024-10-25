@@ -1,14 +1,16 @@
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { actualizarLoginFormulario, loginUsuario } from "../../../redux/loginSlice";
 import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
 
 
 function LoginForm() {
 
   const dispatch = useDispatch();
-  const { loginData, status } = useSelector((state) => state.auth );
+  const navigate = useNavigate()
+  const { loginData, status, isAuthenticated } = useSelector((state) => state.auth );
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -19,6 +21,14 @@ function LoginForm() {
     e.preventDefault();
     dispatch(loginUsuario(loginData))
   }
+
+  useEffect(() =>  {
+
+    if(isAuthenticated){
+      navigate('/app/dashboard')
+    }
+
+  }, [isAuthenticated, navigate] )
 
   return (
     <div className="login-container">
@@ -31,7 +41,7 @@ function LoginForm() {
 
         <form  className='form-login' onSubmit={handleSubmit}>
             <label className="form-label-login" htmlFor="email">Direccion de e-mail</label>
-            <input className='form-input-login' type="email" name="email" value={loginData.email}  onChange={handleChange} />
+            <input className='form-input-login' type="email" name="email" value={loginData.email || ''}  onChange={handleChange} />
 
             <div className="container-label-contraseña">    
                 <label className="form-label-login" htmlFor="password">Contraseña</label>

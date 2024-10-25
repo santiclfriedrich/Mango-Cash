@@ -1,75 +1,93 @@
 import './SideNav.css'
-import React from 'react'
-import userImage from '../../../assets/profile_photos/Santiago_Friedrich.jpeg'
+import React, { useEffect } from 'react'
+import defaultUserImage from '../../../assets/profile_photos/Santiago_Friedrich.jpeg'
 import logoname from '../../../assets/logo-nombre.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { logoutUsuario } from '../../../redux/loginSlice'
 
 
 function SideNav() {
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const { user, isAuthenticated } = useSelector((state) => state.auth )
+
+    const handleLogout = () => {
+        dispatch(logoutUsuario())
+    }
+
+    useEffect(() => {
+        if(!isAuthenticated){
+            navigate('/')
+        }
+    }, [isAuthenticated, navigate])
+
   return (
     <>
-    <div class="sidebar">
+    <div className="sidebar">
 
-        <div class="logo_content">
-            <div class="logo">
+        <div className="logo_content">
+            <div className="logo">
                 <img className='logo-sidebar' src={logoname} alt="logo" />
             </div>
-            <i class='bx bx-menu' id="btn"></i>
+            <i className='bx bx-menu' id="btn"></i>
         </div>
 
-        <ul class="nav_list">
+        <ul className="nav_list">
             <li>
                 <Link to={"/app/dashboard"}>
-                    <i class='bx bx-grid-alt'></i>
-                    <span class="links_name">Dashboard</span>
+                    <i className='bx bx-grid-alt'></i>
+                    <span className="links_name">Dashboard</span>
                 </Link>
-                 {/* <span class="tooltip">Dashboard</span>  */}
+                 {/* <span className="tooltip">Dashboard</span>  */}
             </li>
             <li>
                 <Link to={"/app/profile"}>
-                    <i class='bx bx-user'></i>
-                    <span class="links_name">Perfil</span>
+                    <i className='bx bx-user'></i>
+                    <span className="links_name">Perfil</span>
                 </Link>
-                 {/* <span class="tooltip">Dashboard</span>  */}
+                 {/* <span className="tooltip">Dashboard</span>  */}
             </li>
             <li>
                 <Link to={"/app/transactions"}>
-                    <i class='bx bx-transfer'></i>
-                    <span class="links_name">Transacciones</span>
+                    <i className='bx bx-transfer'></i>
+                    <span className="links_name">Transacciones</span>
                 </Link>
-                 {/* <span class="tooltip">Dashboard</span>  */}
+                 {/* <span className="tooltip">Dashboard</span>  */}
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-receipt'></i>
-                    <span class="links_name">Facturas</span>
+                    <i className='bx bx-receipt'></i>
+                    <span className="links_name">Facturas</span>
                 </a>
-                 {/* <span class="tooltip">Dashboard</span>  */}
+                 {/* <span className="tooltip">Dashboard</span>  */}
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-crosshair'></i>
-                    <span class="links_name">Objetivos</span>
+                    <i className='bx bx-crosshair'></i>
+                    <span className="links_name">Objetivos</span>
                 </a>
-                 {/* <span class="tooltip">Dashboard</span>  */}
+                 {/* <span className="tooltip">Dashboard</span>  */}
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-book'></i>
-                    <span class="links_name">Educación</span>
+                    <i className='bx bx-book'></i>
+                    <span className="links_name">Educación</span>
                 </a>
-                 {/* <span class="tooltip">Dashboard</span>  */}
+                 {/* <span className="tooltip">Dashboard</span>  */}
             </li>
         </ul>
-        <div class="profile_content">
-            <div class="profile">
-                <div class="profile_details">
-                    <img src={userImage} alt="user_photo" />
-                    <div class="name_content">
-                        <div class="name">Santiago Friedrich</div>
+        <div className="profile_content">
+            <div className="profile">
+                <div className="profile_details">
+                    <img src={defaultUserImage} alt="user_photo" />
+                    <div className="name_content">
+                        <div className="name">{user ? `${user.nombre} ${user.apellido}` : 'Usuario'}</div>
                     </div>
                 </div>
-                <i class='bx bx-log-out' id="log_out"></i>
+                <i className='bx bx-log-out' id="log_out" onClick={handleLogout}></i>
             </div>
         </div>
 

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { actualizarFormulario, registrarUsuario, resetRegistroState } from '../../../redux/registroSlice';
-
+import { verificarSesionUsuario } from '../../../redux/loginSlice';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,6 +13,15 @@ import 'react-toastify/dist/ReactToastify.css';
         const dispatch = useDispatch();
         const navigate = useNavigate()
         const { formData, status, isRegistered } = useSelector((state) => state.registro )
+        const isAuthenticated = useSelector((state) => state.auth.isAuthenticated )
+
+        useEffect(() => {
+            dispatch(verificarSesionUsuario())
+
+            if(isAuthenticated){
+                navigate('/app/dashboard')
+            }
+        }, [dispatch, isAuthenticated])
 
         const handleChange = (e) => {
             const {name, value} = e.target
@@ -36,11 +45,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
         useEffect(() => {
             dispatch(resetRegistroState())
-
         }, [dispatch])
 
         useEffect(() => {
-            console.log(status);
             if(isRegistered){
                 navigate('/login')
             }

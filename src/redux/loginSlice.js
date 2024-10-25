@@ -24,7 +24,12 @@ export const loginUsuario = createAsyncThunk(
             }
 
             if(response.ok){
+
+                localStorage.setItem('authToken', data.token)
+
                 toast.success(data.message || 'Inicio de sesión exitoso')
+                return data
+
             } else{
                 toast.error(data.error || 'No se ha podido iniciar sesión')
                 return rejectWithValue(data.error)
@@ -46,7 +51,7 @@ const loginSlice = createSlice({
     initialState: {
         loginData: {
             email: '',
-            passsword: '',
+            password: '',
     },
     status: 'idle',
     isAuthenticated: false,
@@ -62,7 +67,14 @@ const loginSlice = createSlice({
         logoutUsuario: (state) => {
             state.isAuthenticated = false;
             state.user = null;
+            localStorage.removeItem('authToken')
             toast.info("Has cerrado sesión")
+        },
+        verificarSesionUsuario: (state) => {
+            const token = localStorage.getItem('authToken');
+            if(token){
+                state.isAuthenticated = true
+            }
         }
     },
 
@@ -74,7 +86,7 @@ const loginSlice = createSlice({
             .addCase(loginUsuario.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 state.isAuthenticated = true;
-                state.user = action.payload;
+                state.user = action.payload.user;
                 state.loginData = {};
             })
             .addCase(loginUsuario.rejected, (state, action) => {
@@ -84,6 +96,6 @@ const loginSlice = createSlice({
     }
 })
 
-export const { actualizarLoginFormulario, logoutUsuario } = loginSlice.actions
+export const { actualizarLoginFormulario, logoutUsuario, verificarSesionUsuario } = loginSlice.actions
 
 export default loginSlice.reducer
