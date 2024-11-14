@@ -1,112 +1,101 @@
-import './transactions.css'
-
-import React from 'react'
+import './transactions.css';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'; // Corregido aquí
+import { fetchTransaccionesByUsuario } from '../../../redux/transaccionesSlice.js';
 
 function Transactions() {
-  return (
-    <div>
+    const dispatch = useDispatch();
+    const { transacciones, status, error } = useSelector((state) => state.transacciones); 
+    const usuarioId = useSelector((state) => state.auth.user?.id); 
 
-        <div className='container-transactions'>
+    useEffect(() => {
+        if (usuarioId) {
+            dispatch(fetchTransaccionesByUsuario(usuarioId));
+        }
+    }, [dispatch, usuarioId]);
 
-            <div className='header-transactions'>   
-                <div className='header-transactions-left'>
-                    <i class='bx bx-chevrons-right'></i>
-                    <p>27 Sept, 2024</p>
+    if (!usuarioId) {
+    return <div>No hay usuario logueado.</div>; // Mensaje alternativo o redireccionar
+  }
+
+    if(status === 'loading'){
+        return <div> Cargando transacciones... </div>
+    }
+
+    if(error){
+        return <div>Error: {error} </div>
+    }
+
+    return (
+        <div>
+            <div className='container-transactions'>
+                <div className='header-transactions'>   
+                    <div className='header-transactions-left'>
+                        <i className='bx bx-chevrons-right'></i>
+                        <p>27 Sept, 2024</p>
+                    </div>
+
+                    <div className='header-transactions-right'>
+                        <div className='transaction-notif'>
+                            <i className='bx bxs-bell'></i>
+                        </div>
+                        <div className="search-bar">
+                            <input type="text" placeholder="Search here" />
+                            <button type="submit">
+                                <i className='bx bx-search'></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <div className='header-transactions-right'>
-                    <div className='transaction-notif'>
-                        <i class='bx bxs-bell' ></i>
+                <div className='header-transaction-divider'></div>
+
+                <div className='main-transactions'>
+                    <h1>Detalles de cuenta</h1>
+
+                    <div className='container-mini-menu'>
+                        <ul className='mini-menu'>
+                            <li className='menu-option active'>Todos</li>
+                            <li className='menu-option'>Ganancias</li>
+                            <li className='menu-option'>Gastos</li>
+                        </ul>
                     </div>
-                    <div class="search-bar">
-                        <input type="text" placeholder="Search here" />
-                        <button type="submit">
-                            <i class='bx bx-search' ></i>
-                        </button>
+
+                    <div className='container-transaction-table'>
+                        <table className='transactions-table'>
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th>Monto</th>
+                                    <th>Categoría</th>
+                                    <th>Tipo</th>
+                                    <th>Cuenta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {transacciones.map((transaccion) => (
+                                    <tr key={transaccion._id}>
+                                        <td>{transaccion.descripcion}</td>
+                                        <td>{transaccion.monto.toLocaleString()}</td>
+                                        <td>{transaccion.categoria}</td>
+                                        <td>{transaccion.tipo}</td>
+                                        <td>{transaccion.cuenta}</td>
+                                    </tr>
+                                ))}
+                                
+
+                                                 
+                            </tbody>
+                        </table>
+
+                        <div className='transaction-load-more'>
+                            <button>Cargar más</button>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div className='header-transaction-divider'></div>
-
-            <div className='main-transactions' >
-
-                <h1>Detalles de cuenta</h1>
-
-                <div className='container-mini-menu'>
-                    <ul className='mini-menu'>
-                        <li className='menu-option active'>Todos</li>
-                        <li className='menu-option'>Ganancias</li>
-                        <li className='menu-option'>Gastos</li>
-                    </ul>
-                </div>
-
-                <div className='container-transaction-table'>
-
-                    <table className='transactions-table'>
-                        <thead>
-                            <tr>
-                                <th>Items</th>
-                                <th>Tienda</th>
-                                <th>Fecha</th>
-                                <th>Método de Pago</th>
-                                <th>Costo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Item 1</td>
-                                <td>Tienda A</td>
-                                <td>27 Sept, 2024</td>
-                                <td>Tarjeta de Crédito</td>
-                                <td>$100</td>
-                            </tr>
-                            <tr>
-                                <td>Item 2</td>
-                                <td>Tienda B</td>
-                                <td>26 Sept, 2024</td>
-                                <td>Efectivo</td>
-                                <td>$50</td>
-                            </tr>
-                            <tr>
-                                <td>Item 3</td>
-                                <td>Tienda c</td>
-                                <td>25 Sept, 2024</td>
-                                <td>Efectivo</td>
-                                <td>$70</td>
-                            </tr>
-                            <tr>
-                                <td>Item 4</td>
-                                <td>Tienda d</td>
-                                <td>24 Sept, 2024</td>
-                                <td>Tarjeta de Crédito</td>
-                                <td>$10000</td>
-                            </tr>
-                            <tr>
-                                <td>Item 3</td>
-                                <td>Tienda c</td>
-                                <td>25 Sept, 2024</td>
-                                <td>Efectivo</td>
-                                <td>$70</td>
-                            </tr>                            
-                        </tbody>
-                    </table>
-
-                    <div className='transaction-load-more'>
-                        <button>Cargar mas</button>
-                    </div>
-
-                </div>
-
-
-            </div>
-
         </div>
-
-        
-
-    </div>
-  )
+    );
 }
 
-export default Transactions
+export default Transactions;

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
+import { jwtDecode } from 'jwt-decode'
 
 export const loginUsuario = createAsyncThunk(
     'auth/loginUsuario',
@@ -73,7 +74,15 @@ const loginSlice = createSlice({
         verificarSesionUsuario: (state) => {
             const token = localStorage.getItem('authToken');
             if(token){
-                state.isAuthenticated = true
+                try {
+                    const decoded = jwtDecode(token)
+                    console.log(decoded);
+                    state.isAuthenticated = true
+                    state.user = decoded
+                    
+                } catch (error) {
+                    console.error('Error decodificando el token', error);
+                }
             }
         }
     },
