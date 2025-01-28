@@ -20,7 +20,7 @@ function Home() {
           </div>
 
           <div class="button-container">
-            <Link to={"/app/dashboard"}>
+            <Link to={"/login"}>
             <button class="button --comienza">
               Comienza         
             </button>
@@ -84,11 +84,9 @@ function Home() {
               seguimiento de gastos, presupuestos y ahorros de forma
               automática.
             </p>
-            <button>
-              <a href="">
-                Comenzar
-              </a>
-            </button>
+            <Link to={"/login"}>
+              <button><a href="">Comenzar</a></button>
+            </Link>
           </div>
 
           <div class="why-right">

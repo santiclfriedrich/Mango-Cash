@@ -1,31 +1,8 @@
 import './transactions.css';
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'; // Corregido aquí
-import { fetchTransaccionesByUsuario } from '../../../redux/transaccionesSlice.js';
 
 function Transactions() {
-    const dispatch = useDispatch();
-    const { transacciones, status, error } = useSelector((state) => state.transacciones); 
-    const usuarioId = useSelector((state) => state.auth.user?.id); 
-
-    useEffect(() => {
-        if (usuarioId) {
-            dispatch(fetchTransaccionesByUsuario(usuarioId));
-        }
-    }, [dispatch, usuarioId]);
-
-    if (!usuarioId) {
-    return <div>No hay usuario logueado.</div>; // Mensaje alternativo o redireccionar
-  }
-
-    if(status === 'loading'){
-        return <div> Cargando transacciones... </div>
-    }
-
-    if(error){
-        return <div>Error: {error} </div>
-    }
-
+    
     return (
         <div>
             <div className='container-transactions'>

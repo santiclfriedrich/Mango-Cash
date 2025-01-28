@@ -3,26 +3,9 @@ import React, { useEffect } from 'react'
 import defaultUserImage from '../../../assets/profile_photos/Santiago_Friedrich.jpeg'
 import logoname from '../../../assets/logo-nombre.png'
 import { Link, useNavigate} from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { logoutUsuario } from '../../../redux/loginSlice'
 
 
 function SideNav() {
-
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
-
-    const { user, isAuthenticated } = useSelector((state) => state.auth )
-
-    const handleLogout = () => {
-        dispatch(logoutUsuario())
-    }
-
-    useEffect(() => {
-        if(!isAuthenticated){
-            navigate('/')
-        }
-    }, [isAuthenticated, navigate])
 
   return (
     <>
